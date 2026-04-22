@@ -29,7 +29,7 @@ const ManageStudents = () => {
     const getAllStudents = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get("http://localhost:8080/student/get-all", {
+            const response = await axios.get("http://172.17.0.3:8080/student/get-all", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             if (response.data?.studentList) {
@@ -67,7 +67,7 @@ const ManageStudents = () => {
         setCreating(true);
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.post("http://localhost:8080/student/register", newStudent, {
+            const response = await axios.post("http://172.17.0.3:8080/student/register", newStudent, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             if (response.data.statusCode === 201 || response.data.statusCode === 200) {
@@ -99,7 +99,7 @@ const ManageStudents = () => {
                 const formData = new FormData();
                 formData.append("image", imageFile);
 
-                const uploadRes = await fetch("http://localhost:8080/cloudinary/upload", {
+                const uploadRes = await fetch("http://172.17.0.3:8080/cloudinary/upload", {
                     method: "POST",
                     body: formData,
                 });
@@ -119,7 +119,7 @@ const ManageStudents = () => {
             };
 
             const response = await axios.put(
-                `http://localhost:8080/student/update/${editingStudent.id}`,
+                `http://172.17.0.3:8080/student/update/${editingStudent.id}`,
                 payload,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -146,7 +146,7 @@ const ManageStudents = () => {
     const confirmDelete = async (studentId) => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.delete(`http://localhost:8080/student/delete/${studentId}`, {
+            const response = await axios.delete(`http://172.17.0.3:8080/student/delete/${studentId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             if (response.data.statusCode === 204 || response.status === 204) {
@@ -173,7 +173,7 @@ const ManageStudents = () => {
 
             try {
                 const response = await axios.get(
-                    `http://localhost:8080/student/search?keyword=${value}`,
+                    `http://172.17.0.3:8080/student/search?keyword=${value}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,

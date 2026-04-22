@@ -25,7 +25,7 @@ const AddCourse = () => {
             }
 
             const response = await axios.post(
-                "http://localhost:8080/course/add",
+                "http://172.17.0.3:8080/course/add",
                 {
                     name,
                     code,

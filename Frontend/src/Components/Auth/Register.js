@@ -25,7 +25,7 @@ const Register = () => {
         e.preventDefault();
         const { name, email, password, role } = formData;
         try {
-            const response = await axios.post("http://localhost:8080/auth/register", {
+            const response = await axios.post("http://172.17.0.3:8080/auth/register", {
                 name, email, password, role
             });
 

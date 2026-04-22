@@ -15,7 +15,7 @@ const TestDashboard = () => {
     const fetchAllUsers = async () => {
         try {
             const token = localStorage.getItem('token');
-            const res = await axios.get("http://localhost:8080/admin/get-all-users", {
+            const res = await axios.get("http://172.17.0.3:8080/admin/get-all-users", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUsers(res.data?.usersList || []);

@@ -16,7 +16,7 @@ const ForgotPassword = () => {
     const handleEmailSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8080/auth/email/reset-password/send-otp", { email });
+            const response = await axios.post("http://172.17.0.3:8080/auth/email/reset-password/send-otp", { email });
             const { statusCode, message } = response.data;
 
             switch (statusCode) {
@@ -56,7 +56,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         try {
             const payload = { email, otp, newPassword };
-            const response = await axios.post("http://localhost:8080/auth/email/reset-password/verify-otp", payload);
+            const response = await axios.post("http://172.17.0.3:8080/auth/email/reset-password/verify-otp", payload);
             const { statusCode, message } = response.data;
 
             switch (statusCode) {

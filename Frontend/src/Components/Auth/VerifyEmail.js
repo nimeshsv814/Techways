@@ -28,7 +28,7 @@ const VerifyEmail = () => {
                 setLoading(true);
                 const headers = { Authorization: `Bearer ${token}` };
 
-                const infoRes = await axios.get("http://localhost:8080/auth/get-my-info", { headers });
+                const infoRes = await axios.get("http://172.17.0.3:8080/auth/get-my-info", { headers });
                 const { verified, users, statusCode, message } = infoRes.data;
 
                 if (statusCode !== 200 || !users?.email) {
@@ -71,7 +71,7 @@ const VerifyEmail = () => {
     const sendOtp = async (emailToSend) => {
         try {
             setLoading(true);
-            const res = await axios.post("http://localhost:8080/auth/email/send-otp", { email: emailToSend });
+            const res = await axios.post("http://172.17.0.3:8080/auth/email/send-otp", { email: emailToSend });
             const { statusCode, message } = res.data;
 
             if (statusCode === 200) {
@@ -102,7 +102,7 @@ const VerifyEmail = () => {
             setLoading(true);
             const payload = { email, otp };
 
-            const res = await axios.post("http://localhost:8080/auth/email/verify", payload, {
+            const res = await axios.post("http://172.17.0.3:8080/auth/email/verify", payload, {
                 validateStatus: () => true,
             });
 

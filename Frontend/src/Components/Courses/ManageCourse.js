@@ -14,7 +14,7 @@ const ManageCourse = () => {
     const fetchCourses = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:8080/course/all', {
+            const response = await axios.get('http://172.17.0.3:8080/course/all', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -28,7 +28,7 @@ const ManageCourse = () => {
     const deleteCourse = async (id) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.delete(`http://localhost:8080/course/delete/${id}`, {
+            await axios.delete(`http://172.17.0.3:8080/course/delete/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
