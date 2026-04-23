@@ -6,6 +6,7 @@ services:
     container_name: mysql-db
     restart: always
     environment:
+      MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: Akash@123
       MYSQL_DATABASE: techways
     ports:
