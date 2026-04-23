@@ -25,7 +25,7 @@ const Register = () => {
         e.preventDefault();
         const { name, email, password, role } = formData;
         try {
-            const response = await axios.post("http://54.144.95.44:8080/auth/register", {
+            const response = await axios.post("http://23.22.144.61:8080/auth/register", {
                 name, email, password, role
             });
 

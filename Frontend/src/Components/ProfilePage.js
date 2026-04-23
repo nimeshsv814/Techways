@@ -22,7 +22,7 @@ const ProfilePage = () => {
   const fetchStudentInfo = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get("http://54.144.95.44:8080/student/get-my-info", {
+      const response = await axios.get("http://23.22.144.61:8080/student/get-my-info", {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setProfileInfo(response.data.student);
@@ -36,7 +36,7 @@ const ProfilePage = () => {
   const fetchUserOrAdminInfo = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get("http://54.144.95.44:8080/auth/get-my-info", {
+      const response = await axios.get("http://23.22.144.61:8080/auth/get-my-info", {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       console.log("User or Admin Info:", response.data);

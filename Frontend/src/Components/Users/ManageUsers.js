@@ -52,7 +52,7 @@ const ManageUsers = () => {
 
             try {
                 const response = await axios.get(
-                    `http://54.144.95.44:8080/users/search?keyword=${value}`,
+                    `http://23.22.144.61:8080/users/search?keyword=${value}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const ManageUsers = () => {
         setCreating(true);
         try {
             const { name, email, password, role } = newUser;
-            const response = await axios.post("http://54.144.95.44:8080/auth/register", {
+            const response = await axios.post("http://23.22.144.61:8080/auth/register", {
                 name,
                 email,
                 password,
@@ -121,7 +121,7 @@ const ManageUsers = () => {
     const getAllUsers = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get("http://54.144.95.44:8080/admin/get-all-users", {
+            const response = await axios.get("http://23.22.144.61:8080/admin/get-all-users", {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -139,7 +139,7 @@ const ManageUsers = () => {
     const handleDelete = async (userId) => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.delete(`http://54.144.95.44:8080/admin/delete/${userId}`, {
+            const response = await axios.delete(`http://23.22.144.61:8080/admin/delete/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -166,7 +166,7 @@ const ManageUsers = () => {
             const { authorities, accountNonExpired, accountNonLocked, credentialsNonExpired, username, ...safeUser } = editingUser;
 
             const response = await axios.put(
-                `http://54.144.95.44:8080/admin/update/${editingUser.id}`,
+                `http://23.22.144.61:8080/admin/update/${editingUser.id}`,
                 safeUser,
                 { headers: { Authorization: `Bearer ${token}` } }
             );

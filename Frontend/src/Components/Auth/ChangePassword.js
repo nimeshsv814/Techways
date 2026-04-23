@@ -31,7 +31,7 @@ const ChangePassword = () => {
 
             // Send OTP to user's email
             axios
-                .post("http://54.144.95.44:8080/auth/email/reset-password/send-otp", { email: extractedEmail })
+                .post("http://23.22.144.61:8080/auth/email/reset-password/send-otp", { email: extractedEmail })
                 .then(() => {
                     setMessage("OTP sent to your email.");
                     setStep(1);
@@ -62,7 +62,7 @@ const ChangePassword = () => {
         e.preventDefault();
         try {
             const payload = { email, otp, newPassword };
-            const response = await axios.post("http://54.144.95.44:8080/auth/email/reset-password/verify-otp", payload);
+            const response = await axios.post("http://23.22.144.61:8080/auth/email/reset-password/verify-otp", payload);
             const { statusCode } = response.data;
 
             if (statusCode === 200) {
